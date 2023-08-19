@@ -1,31 +1,13 @@
+
+@Library('jenkins-ci-cd-library') _
+
 pipeline {
     agent any
-
     stages {
-        stage('Build') {
+        stage('Addition Stage') {
             steps {
-                echo "Building the application"
+                add(15, 25) // Hardcoded values
             }
-        }
-
-        stage('Test') {
-            steps {
-                echo "Running tests"
-                // Uncommenting the line below will make the build fail.
-                sh "exit 1"
-            }
-        }
-    }
-
-    post {
-        always {
-            echo "This will always run, regardless of build status."
-        }
-        success {
-            echo "Build was a success!"
-        }
-        failure {
-            echo "Build failed!"
         }
     }
 }
