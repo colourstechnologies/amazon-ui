@@ -1,44 +1,37 @@
-// Build Timestamp Plugin
+// stage wise timestamp
 
 pipeline {
-    agent any 
-
-    options {
-        timestamps()  // This enables timestamps for the entire pipeline
-    }
-
+    agent any
+    
     stages {
-        stage('Checkout') {
+        stage('Stage 1') {
             steps {
-                echo 'Checking out code...'
-                // Add your SCM checkout steps here if needed.
-                sleep(time: 4, unit: 'SECONDS')
+                    echo 'Running Stage 1...'
+                }
             }
         }
-
-        stage('Build') {
+        
+        stage('Stage 2') {
             steps {
-                echo 'Building...'
-                // Add your build steps here.
-                sleep(time: 4, unit: 'SECONDS')
+                timestamps {
+                    echo 'Running Stage 2...'
+                }
             }
         }
-
-        stage('Test') {
+        
+        stage('Stage 3') {
             steps {
-                echo 'Testing...'
-                // Add your test steps here.
-                sleep(time: 4, unit: 'SECONDS')
+                timestamps {
+                    echo 'Running Stage 3...'
+                }
             }
         }
-
-        stage('Deploy') {
+        
+        stage('Stage 4') {
             steps {
-                echo 'Deploying...'
-                // Add your deployment steps here.
-                sleep(time: 4, unit: 'SECONDS')
+                timestamps {
+                    echo 'Running Stage 4...'
+                }
             }
         }
-
     }
-}
