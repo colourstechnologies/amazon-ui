@@ -44,7 +44,7 @@ pipeline {
                 sh 'tar -czvf archive.tar.gz myfolder'
             }
         }
-                stage('Compress and Archive Files') {
+        stage('Remove Directory') {
             steps {
                 sh 'rm -rf myfolder'
             }
