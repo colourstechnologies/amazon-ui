@@ -1,5 +1,3 @@
-// stage wise timestamp
-
 pipeline {
     agent any
     
@@ -9,7 +7,6 @@ pipeline {
                     echo 'Running Stage 1...'
                 }
             }
-        }
         
         stage('Stage 2') {
             steps {
@@ -35,3 +32,4 @@ pipeline {
             }
         }
     }
+}
