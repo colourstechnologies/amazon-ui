@@ -1,52 +1,29 @@
 pipeline {
     agent any
+    
     stages {
-        stage('List and Count Files') {
+        stage('Stage 1') {
             steps {
-                sh 'ls -la'
-                sh 'ls | wc -l'
+                echo 'Running Stage 1...'
             }
         }
-        stage('Print Current User') {
+        
+        stage('Stage 2') {
             steps {
-                sh 'whoami'
+                echo 'Running Stage 2...'
+                sh 'this-command-does-not-exist' // Intentional error
             }
         }
-        stage('Create and Navigate Directory') {
+        
+        stage('Stage 3') {
             steps {
-                sh 'mkdir myfolder'
-                sh 'cd myfolder'
+                echo 'Running Stage 3...'
             }
         }
-        stage('Create and Write to File') {
+        
+        stage('Stage 4') {
             steps {
-                sh 'echo "Hello, Jenkins!" > mytextfile.txt'
-            }
-        }
-        stage('Append to File') {
-            steps {
-                sh 'echo "Appending more content." >> mytextfile.txt'
-            }
-        }
-        stage('Display File Content') {
-            steps {
-                sh 'cat mytextfile.txt'
-            }
-        }
-        stage('Find and Replace') {
-            steps {
-                sh 'sed -i "s/Jenkins/CI-CD/g" mytextfile.txt'
-                sh 'cat mytextfile.txt'
-            }
-        }
-        stage('Compress and Archive Files') {
-            steps {
-                sh 'tar -czvf archive.tar.gz myfolder'
-            }
-        }
-        stage('Remove Directory') {
-            steps {
-                sh 'rm -rf myfolder'
+                echo 'Running Stage 4...'
             }
         }
     }
