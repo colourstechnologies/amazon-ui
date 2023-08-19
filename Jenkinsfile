@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo "Running tests"
                 // Uncommenting the line below will make the build fail.
-                // sh "exit 1"
+                sh "exit 1"
             }
         }
     }
