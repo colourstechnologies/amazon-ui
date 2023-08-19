@@ -11,7 +11,13 @@ pipeline {
         stage('Stage 2') {
             steps {
                 echo 'Running Stage 2...'
-                sh 'this-command-does-not-exist' // Intentional error
+                script {
+                    try {
+                        sh 'this-command-does-not-exist' // Intentional error
+                    } catch (Exception e) {
+                        echo "An error occurred: ${e.getMessage()}"
+                    }
+                }
             }
         }
         
@@ -28,3 +34,4 @@ pipeline {
         }
     }
 }
+
